@@ -16,7 +16,8 @@ class GetJobDescription:
             inquirer.List(
                 "source",
                 message="Choose job description source: ",
-                choices=["Text", "File", "URL"]
+                choices=["Text", "File", "URL"],
+                carousel=True # loop through choises
             )
         ]
 
@@ -40,16 +41,25 @@ class GetJobDescription:
         # Prompt user tho input job description as text
         logger.info("Job description input via text: ")
         questions = [
-            inquirer.Editor("long_text", message="Provide long text")
+            inquirer.Editor("job_des_text", message="Provide long text")
         ]
 
         answers = inquirer.prompt(questions)
-        return answers.get("long_text")
+        return answers.get("job_des_text")
     
     @staticmethod
     def _from_file() -> str:
         # Prompt user to provide a file path
-        path = input("Enter the path to the job description file: ").strip()
+        questions = [
+            inquirer.Path(
+                'job_des_file_path',
+                message="Enter path to the job description file: ",
+                path_type=inquirer.Path.FILE
+            )
+        ]
+        answer = inquirer.prompt(questions)
+        path = answer.get('job_des_file_path')
+        
         try:
             with open(path, "r", encoding="utf-8") as f:
                 logger.info(f"Loaded job description from file: {path}")
@@ -60,8 +70,15 @@ class GetJobDescription:
     
     @staticmethod
     def _from_url() -> str:
-        # Prompt user to provide a URL 
-        url = input("Enter the URL of the job posting: ").strip()
+        # Prompt user to provide a URL
+        questions = [
+            inquirer.Text(
+                'job_des_URL',
+                message="Enter the URL of the job posting: "
+            ) 
+        ]
+        answer = inquirer.prompt(questions)
+        url = answer.get('job_des_URL')
         try:
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -76,4 +93,5 @@ class GetJobDescription:
 if __name__ == "__main__":
     
     # get_job_description()
-    print(GetJobDescription())
+    job_description = GetJobDescription.run()
+    print(job_description)
