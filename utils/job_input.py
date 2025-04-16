@@ -1,16 +1,47 @@
 import os
 import requests
+import inquirer
 from bs4 import BeautifulSoup
-from utils.logger import logger
 
+# my librarys and modules imports
+from logger import logger
+
+class GetJobDescription:
+    """ User will be promt to choose and load job description from choise of the user. """
+    
+    def __init__():
+        questions = [
+        inquirer.List(
+            "source",
+            message="Choose job description source: ",
+            choices=["Text", "File", "URL"]
+                    )
+        ]
+
+        answer = inquirer.prompt(questions)
+        cls.source = answer.get("source")
+
+    def From_text(cls):
+        pass
+    
+    def From_file(cls):
+        pass
+    
+    def From_url(cls): 
+        pass
+       
 def get_job_description():
-    source = input("Choose job description source (text / file / url): ").strip().lower()
 
-    if source == "text":
-        logger.info("Job description input via text.")
-        return input("Paste the job description here:\n")
+    if source == "Text":
+        logger.info("Job description input via text: ")
+        questions = [
+            inquirer.Editor("long_text", message="Provide long text")
+            ]
 
-    elif source == "file":
+        answers = inquirer.prompt(questions)
+        return answers.get("long_text")
+        
+    elif source == "File":
         path = input("Enter the path to the job description file: ").strip()
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -20,7 +51,7 @@ def get_job_description():
             logger.error(f"Failed to load job description from file: {e}")
             return ""
 
-    elif source == "url":
+    elif source == "URL":
         url = input("Enter the URL of the job posting: ").strip()
         try:
             response = requests.get(url)
@@ -36,3 +67,8 @@ def get_job_description():
     else:
         logger.warning("Invalid input method selected.")
         return ""
+
+
+if __name__ == "__main__":
+    
+    get_job_description()

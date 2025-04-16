@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "beautifulsoup4>=4.13.3",
+    "inquirer>=3.4.0",
     "jinja2>=3.1.6",
     "markdown>=3.8",
     "pyyaml>=6.0.2",

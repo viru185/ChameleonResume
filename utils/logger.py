@@ -13,8 +13,8 @@ if os.path.exists(log_path):
 # Configure logging
 logging.basicConfig(
     filename=log_path,
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
+    level=logging.NOTSET,
+    format="%(asctime)s [%(levelname)s] (%(module)s) %(message)s",
 )
 
 logger = logging.getLogger(__name__)
