@@ -1,3 +1,5 @@
+# <p align="center"> NOTE - WORKING ON THIS PROJECT </p>
+
 # 🦎 ChameleonResume
 
 **ChameleonResume** is a smart resume generator that tailors your resume to match any job description using AI (powered by Mistral via Ollama). It adapts your experience just like a chameleon adapts its color.
