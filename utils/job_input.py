@@ -7,41 +7,48 @@ from bs4 import BeautifulSoup
 from logger import logger
 
 class GetJobDescription:
-    """ User will be promt to choose and load job description from choise of the user. """
+    """User will be prompted to choose and load job description from a choice of the user."""
     
-    def __init__():
+    @classmethod
+    def run(cls):
+        # Prompt user to select the source
         questions = [
-        inquirer.List(
-            "source",
-            message="Choose job description source: ",
-            choices=["Text", "File", "URL"]
-                    )
+            inquirer.List(
+                "source",
+                message="Choose job description source: ",
+                choices=["Text", "File", "URL"]
+            )
         ]
 
         answer = inquirer.prompt(questions)
-        cls.source = answer.get("source")
-
-    def From_text(cls):
-        pass
+        source = answer.get("source") # Get the user's selection
     
-    def From_file(cls):
-        pass
-    
-    def From_url(cls): 
-        pass
-       
-def get_job_description():
+        # Call the appropriate method
+        try:
+            if source == "Text":
+                return cls._from_text()
+            elif source == "File":
+                return cls._from_file()
+            elif source == "URL":
+                return cls._from_url()
+        except Exception as e:
+            logger.warning(f"Something has gone wrong. -> {e}")
+            return ""
 
-    if source == "Text":
+    @staticmethod
+    def _from_text() -> str:
+        # Prompt user tho input job description as text
         logger.info("Job description input via text: ")
         questions = [
             inquirer.Editor("long_text", message="Provide long text")
-            ]
+        ]
 
         answers = inquirer.prompt(questions)
         return answers.get("long_text")
-        
-    elif source == "File":
+    
+    @staticmethod
+    def _from_file() -> str:
+        # Prompt user to provide a file path
         path = input("Enter the path to the job description file: ").strip()
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -50,8 +57,10 @@ def get_job_description():
         except Exception as e:
             logger.error(f"Failed to load job description from file: {e}")
             return ""
-
-    elif source == "URL":
+    
+    @staticmethod
+    def _from_url() -> str:
+        # Prompt user to provide a URL 
         url = input("Enter the URL of the job posting: ").strip()
         try:
             response = requests.get(url)
@@ -62,13 +71,9 @@ def get_job_description():
             return job_text
         except Exception as e:
             logger.error(f"Failed to scrape job description from URL: {e}")
-            return ""
-
-    else:
-        logger.warning("Invalid input method selected.")
-        return ""
-
+            return "" 
 
 if __name__ == "__main__":
     
-    get_job_description()
+    # get_job_description()
+    print(GetJobDescription())
