@@ -1,10 +1,12 @@
 import os
 import yaml
+import sys
+
+# my librarys and modules imports
 from utils.job_input import get_job_description
 from utils.ollama_client import generate_resume_with_ollama
 from utils.resume_renderer import render_resume
 from utils.logger import logger
-import sys
 
 # clear the log is the arg pass.
 if "--clear-log" in sys.argv:
