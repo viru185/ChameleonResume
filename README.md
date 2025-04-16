@@ -1,4 +1,4 @@
-# <p align="center"> NOTE - WORKING ON THIS PROJECT </p>
+# <p align="center"> NOTICE - WORKING ON THIS PROJECT </p>
 
 # 🦎 ChameleonResume
 

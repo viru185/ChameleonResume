@@ -6,10 +6,10 @@ __pycache__/
 .venv
 
 # Ignore logs
-logs/
+logs/*
 
 # Ignore output files
-output/
+output/*
 
 # Ignore private data like candidate.yaml
-private/
+private/*
