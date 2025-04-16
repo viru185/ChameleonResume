@@ -1,0 +1,15 @@
+# Ignore Python cache and environment files
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv
+
+# Ignore logs
+logs/
+
+# Ignore output files
+output/
+
+# Ignore private data like candidate.yaml
+private/

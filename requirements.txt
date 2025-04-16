@@ -1,0 +1,6 @@
+PyYAML
+requests
+beautifulsoup4
+markdown
+Jinja2
+weasyprint

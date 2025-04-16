@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChameleonResume</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 2rem auto;
+      max-width: 800px;
+      padding: 1rem;
+      background-color: #fdfdfd;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #004d7a;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    li {
+      margin-bottom: 0.3em;
+    }
+    .section {
+      margin-bottom: 2em;
+    }
+    hr {
+      margin: 2em 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    {{ resume_content | safe }}
+  </div>
+</body>
+</html>
