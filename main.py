@@ -3,7 +3,7 @@ import yaml
 import sys
 
 # my librarys and modules imports
-from utils.job_input import get_job_description
+from utils.job_input import GetJobDescription
 from utils.ollama_client import generate_resume_with_ollama
 from utils.resume_renderer import render_resume
 from utils.logger import logger
@@ -25,7 +25,7 @@ def load_candidate_data():
 
 def main():
     candidate = load_candidate_data()
-    job_desc = get_job_description()
+    job_desc = GetJobDescription.run()
 
     logger.info("Generating tailored resume using Mistral via Ollama...")
     resume_text = generate_resume_with_ollama(candidate, job_desc)

@@ -4,7 +4,7 @@ import inquirer
 from bs4 import BeautifulSoup
 
 # my librarys and modules imports
-from logger import logger
+from utils.logger import logger
 
 class GetJobDescription:
     """User will be prompted to choose and load job description from a choice of the user."""

@@ -1,14 +1,19 @@
 [project]
 name = "chameleonresume"
 version = "0.1.0"
-description = "Add your description here"
+description = "ChameleonResume is a smart resume generator that tailors your resume to match any job description using AI (powered by Mistral via Ollama). It adapts your experience just like a chameleon adapts its color."
+author = ["Viren Hirpara"]
+license = "GPL"
 readme = "README.md"
+repository = "https://github.com/viru185/ChameleonResume"
 requires-python = ">=3.11"
+
 dependencies = [
     "beautifulsoup4>=4.13.3",
     "inquirer>=3.4.0",
     "jinja2>=3.1.6",
     "markdown>=3.8",
+    "ollama>=0.4.8",
     "pyyaml>=6.0.2",
     "requests>=2.32.3",
     "weasyprint>=65.1",
