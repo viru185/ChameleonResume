@@ -3,7 +3,7 @@ import requests
 import inquirer
 from bs4 import BeautifulSoup
 
-# my librarys and modules imports
+# My librarys and modules imports.
 from utils.logger import logger
 
 class GetJobDescription:
@@ -15,7 +15,7 @@ class GetJobDescription:
         questions = [
             inquirer.List(
                 "source",
-                message="Choose job description source: ",
+                message="Choose job description source",
                 choices=["Text", "File", "URL"],
                 carousel=True # loop through choises
             )
@@ -39,7 +39,7 @@ class GetJobDescription:
     @staticmethod
     def _from_text() -> str:
         # Prompt user tho input job description as text
-        logger.info("Job description input via text: ")
+        logger.info("Job description input via text")
         questions = [
             inquirer.Editor("job_des_text", message="Provide long text")
         ]
@@ -53,7 +53,7 @@ class GetJobDescription:
         questions = [
             inquirer.Path(
                 'job_des_file_path',
-                message="Enter path to the job description file: ",
+                message="Enter path to the job description file",
                 path_type=inquirer.Path.FILE
             )
         ]
