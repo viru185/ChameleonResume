@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 # My librarys and modules imports.
 from utils.logger import logger
 
+# TODO: update the _from_url function to get only the job description part of the page.
+
 class GetJobDescription:
     """User will be prompted to choose and load job description from a choice of the user."""
     
@@ -38,7 +40,7 @@ class GetJobDescription:
 
     @staticmethod
     def _from_text() -> str:
-        # Prompt user tho input job description as text
+        # Prompt user to input job description as text
         logger.info("Job description input via text")
         questions = [
             inquirer.Editor("job_des_text", message="Provide long text")

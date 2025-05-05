@@ -13,3 +13,6 @@ output/*
 
 # Ignore private data like candidate.yaml
 private/*
+
+# Ignore Other files
+Utils/test*
