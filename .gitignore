@@ -15,4 +15,4 @@ output/*
 private/*
 
 # Ignore Other files
-Utils/test*
+tests/temp_test.py

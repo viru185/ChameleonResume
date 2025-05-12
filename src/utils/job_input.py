@@ -4,11 +4,11 @@ import inquirer
 from bs4 import BeautifulSoup
 
 # My librarys and modules imports.
-from utils.logger import logger
+from src.utils.logger import logger
 
 # TODO: update the _from_url function to get only the job description part of the page.
 
-class GetJobDescription:
+class JobDescription:
     """User will be prompted to choose and load job description from a choice of the user."""
     
     @classmethod

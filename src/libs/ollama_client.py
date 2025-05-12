@@ -1,8 +1,8 @@
 import json
 from  ollama import chat, ChatResponse, ResponseError, RequestError
 
-# My librarys and modules imports.
-from utils.logger import logger
+# App librarys, modules and utils imports.
+from src.utils.logger import logger
 
 def prompt_builder(candidate_data: dict, job_description: str) -> list:
     """
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     candidate_data = data_loader()
     job_des = job_description_loader()
     
-    response = generate_resume_with_ollama(candidate_data, job_des, model='llama2')
+    response = generate_resume_with_ollama(candidate_data, job_des, model='deepseek-r1:14b')
     
     output_dir = "output"
     os.makedirs(output_dir, exist_ok=True)
